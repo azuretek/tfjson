@@ -1,0 +1,16 @@
+package: .
+import:
+- package: github.com/hashicorp/terraform
+  version: ^0.10.2
+  subpackages:
+  - terraform
+- package: github.com/apparentlymart/go-cidr
+- package: github.com/hashicorp/go-getter
+- package: github.com/hashicorp/go-multierror
+- package: github.com/hashicorp/go-uuid
+- package: github.com/hashicorp/go-version
+- package: github.com/hashicorp/hil
+- package: github.com/mitchellh/copystructure
+- package: github.com/mitchellh/go-homedir
+- package: github.com/mitchellh/hashstructure
+- package: github.com/mitchellh/reflectwalk
