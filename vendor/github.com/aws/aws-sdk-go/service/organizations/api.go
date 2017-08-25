@@ -16,19 +16,18 @@ const opAcceptHandshake = "AcceptHandshake"
 
 // AcceptHandshakeRequest generates a "aws/request.Request" representing the
 // client's request for the AcceptHandshake operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See AcceptHandshake for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the AcceptHandshake method directly
-// instead.
+// See AcceptHandshake for more information on using the AcceptHandshake
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the AcceptHandshakeRequest method.
 //    req, resp := client.AcceptHandshakeRequest(params)
@@ -75,6 +74,9 @@ func (c *Organizations) AcceptHandshakeRequest(input *AcceptHandshakeInput) (req
 //    to enable all features in the organization, see Enabling All Features
 //    in Your Organization (http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
 //    in the AWS Organizations User Guide.
+//
+// After you accept a handshake, it continues to appear in the results of relevant
+// APIs for only 30 days. After that it is deleted.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -157,6 +159,9 @@ func (c *Organizations) AcceptHandshakeRequest(input *AcceptHandshakeInput) (req
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
 //
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
+//
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
 //
@@ -230,19 +235,18 @@ const opAttachPolicy = "AttachPolicy"
 
 // AttachPolicyRequest generates a "aws/request.Request" representing the
 // client's request for the AttachPolicy operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See AttachPolicy for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the AttachPolicy method directly
-// instead.
+// See AttachPolicy for more information on using the AttachPolicy
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the AttachPolicyRequest method.
 //    req, resp := client.AttachPolicyRequest(params)
@@ -344,8 +348,14 @@ func (c *Organizations) AttachPolicyRequest(input *AttachPolicyInput) (req *requ
 //   contains additional information about the violated limit:
 //
 //   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
-//   of accounts in an organization. Note: deleted and closed accounts still count
-//   toward your limit.
+//   of accounts in an organization. If you need more accounts, contact AWS Support
+//   to request an increase in your limit.
+//
+//   Or, The number of invitations that you tried to send would cause you to exceed
+//   the limit of accounts in your organization. Send fewer invitations, or contact
+//   AWS Support to request an increase in the number of accounts.
+//
+//   Note: deleted and closed accounts still count toward your limit.
 //
 //      * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 //      handshakes you can send in one day.
@@ -367,8 +377,15 @@ func (c *Organizations) AttachPolicyRequest(input *AttachPolicyInput) (req *requ
 //      policy from an entity that would cause the entity to have fewer than the
 //      minimum number of policies of a certain type required.
 //
-//      * ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account
-//      from an organization that was created from within organizations.
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account
+//      from the organization that does not yet have enough information to exist
+//      as a stand-alone account. This account requires you to first agree to
+//      the End-User License Agreement (EULA).
+//
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove
+//      an account from the organization that does not yet have enough information
+//      to exist as a stand-alone account. This account requires you to first
+//      complete phone verification.
 //
 //      * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization
 //      with this account, you first must associate a payment instrument, such
@@ -405,6 +422,9 @@ func (c *Organizations) AttachPolicyRequest(input *AttachPolicyInput) (req *requ
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -488,19 +508,18 @@ const opCancelHandshake = "CancelHandshake"
 
 // CancelHandshakeRequest generates a "aws/request.Request" representing the
 // client's request for the CancelHandshake operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CancelHandshake for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CancelHandshake method directly
-// instead.
+// See CancelHandshake for more information on using the CancelHandshake
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CancelHandshakeRequest method.
 //    req, resp := client.CancelHandshakeRequest(params)
@@ -536,6 +555,9 @@ func (c *Organizations) CancelHandshakeRequest(input *CancelHandshakeInput) (req
 // instead. After a handshake is canceled, the recipient can no longer respond
 // to that handshake.
 //
+// After you cancel a handshake, it continues to appear in the results of relevant
+// APIs for only 30 days. After that it is deleted.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -550,6 +572,10 @@ func (c *Organizations) CancelHandshakeRequest(input *CancelHandshakeInput) (req
 //   attached that grants the required permissions. For more information, see
 //   Access Management (http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html)
 //   in the IAM User Guide.
+//
+//   * ErrCodeConcurrentModificationException "ConcurrentModificationException"
+//   The target of the operation is currently being modified by a different request.
+//   Try again later.
 //
 //   * ErrCodeHandshakeNotFoundException "HandshakeNotFoundException"
 //   We can't find a handshake with the HandshakeId that you specified.
@@ -577,6 +603,9 @@ func (c *Organizations) CancelHandshakeRequest(input *CancelHandshakeInput) (req
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -647,19 +676,18 @@ const opCreateAccount = "CreateAccount"
 
 // CreateAccountRequest generates a "aws/request.Request" representing the
 // client's request for the CreateAccount operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateAccount for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateAccount method directly
-// instead.
+// See CreateAccount for more information on using the CreateAccount
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateAccountRequest method.
 //    req, resp := client.CreateAccountRequest(params)
@@ -737,6 +765,10 @@ func (c *Organizations) CreateAccountRequest(input *CreateAccountInput) (req *re
 //   Your account is not a member of an organization. To make this request, you
 //   must use the credentials of an account that belongs to an organization.
 //
+//   * ErrCodeConcurrentModificationException "ConcurrentModificationException"
+//   The target of the operation is currently being modified by a different request.
+//   Try again later.
+//
 //   * ErrCodeConstraintViolationException "ConstraintViolationException"
 //   Performing this operation violates a minimum or maximum value limit. For
 //   example, attempting to removing the last SCP from an OU or root, inviting
@@ -745,8 +777,14 @@ func (c *Organizations) CreateAccountRequest(input *CreateAccountInput) (req *re
 //   contains additional information about the violated limit:
 //
 //   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
-//   of accounts in an organization. Note: deleted and closed accounts still count
-//   toward your limit.
+//   of accounts in an organization. If you need more accounts, contact AWS Support
+//   to request an increase in your limit.
+//
+//   Or, The number of invitations that you tried to send would cause you to exceed
+//   the limit of accounts in your organization. Send fewer invitations, or contact
+//   AWS Support to request an increase in the number of accounts.
+//
+//   Note: deleted and closed accounts still count toward your limit.
 //
 //      * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 //      handshakes you can send in one day.
@@ -768,8 +806,15 @@ func (c *Organizations) CreateAccountRequest(input *CreateAccountInput) (req *re
 //      policy from an entity that would cause the entity to have fewer than the
 //      minimum number of policies of a certain type required.
 //
-//      * ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account
-//      from an organization that was created from within organizations.
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account
+//      from the organization that does not yet have enough information to exist
+//      as a stand-alone account. This account requires you to first agree to
+//      the End-User License Agreement (EULA).
+//
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove
+//      an account from the organization that does not yet have enough information
+//      to exist as a stand-alone account. This account requires you to first
+//      complete phone verification.
 //
 //      * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization
 //      with this account, you first must associate a payment instrument, such
@@ -803,6 +848,9 @@ func (c *Organizations) CreateAccountRequest(input *CreateAccountInput) (req *re
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -877,19 +925,18 @@ const opCreateOrganization = "CreateOrganization"
 
 // CreateOrganizationRequest generates a "aws/request.Request" representing the
 // client's request for the CreateOrganization operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateOrganization for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateOrganization method directly
-// instead.
+// See CreateOrganization for more information on using the CreateOrganization
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateOrganizationRequest method.
 //    req, resp := client.CreateOrganizationRequest(params)
@@ -964,8 +1011,14 @@ func (c *Organizations) CreateOrganizationRequest(input *CreateOrganizationInput
 //   contains additional information about the violated limit:
 //
 //   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
-//   of accounts in an organization. Note: deleted and closed accounts still count
-//   toward your limit.
+//   of accounts in an organization. If you need more accounts, contact AWS Support
+//   to request an increase in your limit.
+//
+//   Or, The number of invitations that you tried to send would cause you to exceed
+//   the limit of accounts in your organization. Send fewer invitations, or contact
+//   AWS Support to request an increase in the number of accounts.
+//
+//   Note: deleted and closed accounts still count toward your limit.
 //
 //      * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 //      handshakes you can send in one day.
@@ -987,8 +1040,15 @@ func (c *Organizations) CreateOrganizationRequest(input *CreateOrganizationInput
 //      policy from an entity that would cause the entity to have fewer than the
 //      minimum number of policies of a certain type required.
 //
-//      * ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account
-//      from an organization that was created from within organizations.
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account
+//      from the organization that does not yet have enough information to exist
+//      as a stand-alone account. This account requires you to first agree to
+//      the End-User License Agreement (EULA).
+//
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove
+//      an account from the organization that does not yet have enough information
+//      to exist as a stand-alone account. This account requires you to first
+//      complete phone verification.
 //
 //      * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization
 //      with this account, you first must associate a payment instrument, such
@@ -1022,6 +1082,9 @@ func (c *Organizations) CreateOrganizationRequest(input *CreateOrganizationInput
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -1092,19 +1155,18 @@ const opCreateOrganizationalUnit = "CreateOrganizationalUnit"
 
 // CreateOrganizationalUnitRequest generates a "aws/request.Request" representing the
 // client's request for the CreateOrganizationalUnit operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateOrganizationalUnit for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateOrganizationalUnit method directly
-// instead.
+// See CreateOrganizationalUnit for more information on using the CreateOrganizationalUnit
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateOrganizationalUnitRequest method.
 //    req, resp := client.CreateOrganizationalUnitRequest(params)
@@ -1163,6 +1225,10 @@ func (c *Organizations) CreateOrganizationalUnitRequest(input *CreateOrganizatio
 //   Your account is not a member of an organization. To make this request, you
 //   must use the credentials of an account that belongs to an organization.
 //
+//   * ErrCodeConcurrentModificationException "ConcurrentModificationException"
+//   The target of the operation is currently being modified by a different request.
+//   Try again later.
+//
 //   * ErrCodeConstraintViolationException "ConstraintViolationException"
 //   Performing this operation violates a minimum or maximum value limit. For
 //   example, attempting to removing the last SCP from an OU or root, inviting
@@ -1171,8 +1237,14 @@ func (c *Organizations) CreateOrganizationalUnitRequest(input *CreateOrganizatio
 //   contains additional information about the violated limit:
 //
 //   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
-//   of accounts in an organization. Note: deleted and closed accounts still count
-//   toward your limit.
+//   of accounts in an organization. If you need more accounts, contact AWS Support
+//   to request an increase in your limit.
+//
+//   Or, The number of invitations that you tried to send would cause you to exceed
+//   the limit of accounts in your organization. Send fewer invitations, or contact
+//   AWS Support to request an increase in the number of accounts.
+//
+//   Note: deleted and closed accounts still count toward your limit.
 //
 //      * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 //      handshakes you can send in one day.
@@ -1194,8 +1266,15 @@ func (c *Organizations) CreateOrganizationalUnitRequest(input *CreateOrganizatio
 //      policy from an entity that would cause the entity to have fewer than the
 //      minimum number of policies of a certain type required.
 //
-//      * ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account
-//      from an organization that was created from within organizations.
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account
+//      from the organization that does not yet have enough information to exist
+//      as a stand-alone account. This account requires you to first agree to
+//      the End-User License Agreement (EULA).
+//
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove
+//      an account from the organization that does not yet have enough information
+//      to exist as a stand-alone account. This account requires you to first
+//      complete phone verification.
 //
 //      * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization
 //      with this account, you first must associate a payment instrument, such
@@ -1232,6 +1311,9 @@ func (c *Organizations) CreateOrganizationalUnitRequest(input *CreateOrganizatio
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -1306,19 +1388,18 @@ const opCreatePolicy = "CreatePolicy"
 
 // CreatePolicyRequest generates a "aws/request.Request" representing the
 // client's request for the CreatePolicy operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreatePolicy for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreatePolicy method directly
-// instead.
+// See CreatePolicy for more information on using the CreatePolicy
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreatePolicyRequest method.
 //    req, resp := client.CreatePolicyRequest(params)
@@ -1386,8 +1467,14 @@ func (c *Organizations) CreatePolicyRequest(input *CreatePolicyInput) (req *requ
 //   contains additional information about the violated limit:
 //
 //   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
-//   of accounts in an organization. Note: deleted and closed accounts still count
-//   toward your limit.
+//   of accounts in an organization. If you need more accounts, contact AWS Support
+//   to request an increase in your limit.
+//
+//   Or, The number of invitations that you tried to send would cause you to exceed
+//   the limit of accounts in your organization. Send fewer invitations, or contact
+//   AWS Support to request an increase in the number of accounts.
+//
+//   Note: deleted and closed accounts still count toward your limit.
 //
 //      * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 //      handshakes you can send in one day.
@@ -1409,8 +1496,15 @@ func (c *Organizations) CreatePolicyRequest(input *CreatePolicyInput) (req *requ
 //      policy from an entity that would cause the entity to have fewer than the
 //      minimum number of policies of a certain type required.
 //
-//      * ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account
-//      from an organization that was created from within organizations.
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account
+//      from the organization that does not yet have enough information to exist
+//      as a stand-alone account. This account requires you to first agree to
+//      the End-User License Agreement (EULA).
+//
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove
+//      an account from the organization that does not yet have enough information
+//      to exist as a stand-alone account. This account requires you to first
+//      complete phone verification.
 //
 //      * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization
 //      with this account, you first must associate a payment instrument, such
@@ -1447,6 +1541,9 @@ func (c *Organizations) CreatePolicyRequest(input *CreatePolicyInput) (req *requ
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -1530,19 +1627,18 @@ const opDeclineHandshake = "DeclineHandshake"
 
 // DeclineHandshakeRequest generates a "aws/request.Request" representing the
 // client's request for the DeclineHandshake operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeclineHandshake for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeclineHandshake method directly
-// instead.
+// See DeclineHandshake for more information on using the DeclineHandshake
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeclineHandshakeRequest method.
 //    req, resp := client.DeclineHandshakeRequest(params)
@@ -1579,6 +1675,9 @@ func (c *Organizations) DeclineHandshakeRequest(input *DeclineHandshakeInput) (r
 // can't reactivate a declined request, but can re-initiate the process with
 // a new handshake request.
 //
+// After you decline a handshake, it continues to appear in the results of relevant
+// APIs for only 30 days. After that it is deleted.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -1593,6 +1692,10 @@ func (c *Organizations) DeclineHandshakeRequest(input *DeclineHandshakeInput) (r
 //   attached that grants the required permissions. For more information, see
 //   Access Management (http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html)
 //   in the IAM User Guide.
+//
+//   * ErrCodeConcurrentModificationException "ConcurrentModificationException"
+//   The target of the operation is currently being modified by a different request.
+//   Try again later.
 //
 //   * ErrCodeHandshakeNotFoundException "HandshakeNotFoundException"
 //   We can't find a handshake with the HandshakeId that you specified.
@@ -1620,6 +1723,9 @@ func (c *Organizations) DeclineHandshakeRequest(input *DeclineHandshakeInput) (r
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -1690,19 +1796,18 @@ const opDeleteOrganization = "DeleteOrganization"
 
 // DeleteOrganizationRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteOrganization operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteOrganization for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteOrganization method directly
-// instead.
+// See DeleteOrganization for more information on using the DeleteOrganization
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteOrganizationRequest method.
 //    req, resp := client.DeleteOrganizationRequest(params)
@@ -1779,6 +1884,9 @@ func (c *Organizations) DeleteOrganizationRequest(input *DeleteOrganizationInput
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
 //
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
+//
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
 //
@@ -1853,19 +1961,18 @@ const opDeleteOrganizationalUnit = "DeleteOrganizationalUnit"
 
 // DeleteOrganizationalUnitRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteOrganizationalUnit operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteOrganizationalUnit for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteOrganizationalUnit method directly
-// instead.
+// See DeleteOrganizationalUnit for more information on using the DeleteOrganizationalUnit
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteOrganizationalUnitRequest method.
 //    req, resp := client.DeleteOrganizationalUnitRequest(params)
@@ -1938,6 +2045,9 @@ func (c *Organizations) DeleteOrganizationalUnitRequest(input *DeleteOrganizatio
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -2017,19 +2127,18 @@ const opDeletePolicy = "DeletePolicy"
 
 // DeletePolicyRequest generates a "aws/request.Request" representing the
 // client's request for the DeletePolicy operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeletePolicy for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeletePolicy method directly
-// instead.
+// See DeletePolicy for more information on using the DeletePolicy
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeletePolicyRequest method.
 //    req, resp := client.DeletePolicyRequest(params)
@@ -2102,6 +2211,9 @@ func (c *Organizations) DeletePolicyRequest(input *DeletePolicyInput) (req *requ
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -2179,19 +2291,18 @@ const opDescribeAccount = "DescribeAccount"
 
 // DescribeAccountRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeAccount operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeAccount for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeAccount method directly
-// instead.
+// See DescribeAccount for more information on using the DescribeAccount
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeAccountRequest method.
 //    req, resp := client.DescribeAccountRequest(params)
@@ -2263,6 +2374,9 @@ func (c *Organizations) DescribeAccountRequest(input *DescribeAccountInput) (req
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
 //
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
+//
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
 //
@@ -2332,19 +2446,18 @@ const opDescribeCreateAccountStatus = "DescribeCreateAccountStatus"
 
 // DescribeCreateAccountStatusRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeCreateAccountStatus operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeCreateAccountStatus for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeCreateAccountStatus method directly
-// instead.
+// See DescribeCreateAccountStatus for more information on using the DescribeCreateAccountStatus
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeCreateAccountStatusRequest method.
 //    req, resp := client.DescribeCreateAccountStatusRequest(params)
@@ -2415,6 +2528,9 @@ func (c *Organizations) DescribeCreateAccountStatusRequest(input *DescribeCreate
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
 //
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
+//
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
 //
@@ -2484,19 +2600,18 @@ const opDescribeHandshake = "DescribeHandshake"
 
 // DescribeHandshakeRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeHandshake operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeHandshake for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeHandshake method directly
-// instead.
+// See DescribeHandshake for more information on using the DescribeHandshake
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeHandshakeRequest method.
 //    req, resp := client.DescribeHandshakeRequest(params)
@@ -2529,6 +2644,10 @@ func (c *Organizations) DescribeHandshakeRequest(input *DescribeHandshakeInput) 
 // ID comes from the response to the original InviteAccountToOrganization operation
 // that generated the handshake.
 //
+// You can access handshakes that are ACCEPTED, DECLINED, or CANCELED for only
+// 30 days after they change to that state. They are then deleted and no longer
+// accessible.
+//
 // This operation can be called from any account in the organization.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
@@ -2545,6 +2664,10 @@ func (c *Organizations) DescribeHandshakeRequest(input *DescribeHandshakeInput) 
 //   attached that grants the required permissions. For more information, see
 //   Access Management (http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html)
 //   in the IAM User Guide.
+//
+//   * ErrCodeConcurrentModificationException "ConcurrentModificationException"
+//   The target of the operation is currently being modified by a different request.
+//   Try again later.
 //
 //   * ErrCodeHandshakeNotFoundException "HandshakeNotFoundException"
 //   We can't find a handshake with the HandshakeId that you specified.
@@ -2563,6 +2686,9 @@ func (c *Organizations) DescribeHandshakeRequest(input *DescribeHandshakeInput) 
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -2633,19 +2759,18 @@ const opDescribeOrganization = "DescribeOrganization"
 
 // DescribeOrganizationRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeOrganization operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeOrganization for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeOrganization method directly
-// instead.
+// See DescribeOrganization for more information on using the DescribeOrganization
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeOrganizationRequest method.
 //    req, resp := client.DescribeOrganizationRequest(params)
@@ -2698,6 +2823,10 @@ func (c *Organizations) DescribeOrganizationRequest(input *DescribeOrganizationI
 //   Your account is not a member of an organization. To make this request, you
 //   must use the credentials of an account that belongs to an organization.
 //
+//   * ErrCodeConcurrentModificationException "ConcurrentModificationException"
+//   The target of the operation is currently being modified by a different request.
+//   Try again later.
+//
 //   * ErrCodeServiceException "ServiceException"
 //   AWS Organizations can't complete your request because of an internal service
 //   error. Try again later.
@@ -2732,19 +2861,18 @@ const opDescribeOrganizationalUnit = "DescribeOrganizationalUnit"
 
 // DescribeOrganizationalUnitRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeOrganizationalUnit operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeOrganizationalUnit for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeOrganizationalUnit method directly
-// instead.
+// See DescribeOrganizationalUnit for more information on using the DescribeOrganizationalUnit
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeOrganizationalUnitRequest method.
 //    req, resp := client.DescribeOrganizationalUnitRequest(params)
@@ -2810,6 +2938,9 @@ func (c *Organizations) DescribeOrganizationalUnitRequest(input *DescribeOrganiz
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -2884,19 +3015,18 @@ const opDescribePolicy = "DescribePolicy"
 
 // DescribePolicyRequest generates a "aws/request.Request" representing the
 // client's request for the DescribePolicy operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribePolicy for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribePolicy method directly
-// instead.
+// See DescribePolicy for more information on using the DescribePolicy
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribePolicyRequest method.
 //    req, resp := client.DescribePolicyRequest(params)
@@ -2962,6 +3092,9 @@ func (c *Organizations) DescribePolicyRequest(input *DescribePolicyInput) (req *
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -3035,19 +3168,18 @@ const opDetachPolicy = "DetachPolicy"
 
 // DetachPolicyRequest generates a "aws/request.Request" representing the
 // client's request for the DetachPolicy operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DetachPolicy for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DetachPolicy method directly
-// instead.
+// See DetachPolicy for more information on using the DetachPolicy
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DetachPolicyRequest method.
 //    req, resp := client.DetachPolicyRequest(params)
@@ -3125,8 +3257,14 @@ func (c *Organizations) DetachPolicyRequest(input *DetachPolicyInput) (req *requ
 //   contains additional information about the violated limit:
 //
 //   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
-//   of accounts in an organization. Note: deleted and closed accounts still count
-//   toward your limit.
+//   of accounts in an organization. If you need more accounts, contact AWS Support
+//   to request an increase in your limit.
+//
+//   Or, The number of invitations that you tried to send would cause you to exceed
+//   the limit of accounts in your organization. Send fewer invitations, or contact
+//   AWS Support to request an increase in the number of accounts.
+//
+//   Note: deleted and closed accounts still count toward your limit.
 //
 //      * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 //      handshakes you can send in one day.
@@ -3148,8 +3286,15 @@ func (c *Organizations) DetachPolicyRequest(input *DetachPolicyInput) (req *requ
 //      policy from an entity that would cause the entity to have fewer than the
 //      minimum number of policies of a certain type required.
 //
-//      * ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account
-//      from an organization that was created from within organizations.
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account
+//      from the organization that does not yet have enough information to exist
+//      as a stand-alone account. This account requires you to first agree to
+//      the End-User License Agreement (EULA).
+//
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove
+//      an account from the organization that does not yet have enough information
+//      to exist as a stand-alone account. This account requires you to first
+//      complete phone verification.
 //
 //      * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization
 //      with this account, you first must associate a payment instrument, such
@@ -3183,6 +3328,9 @@ func (c *Organizations) DetachPolicyRequest(input *DetachPolicyInput) (req *requ
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -3262,19 +3410,18 @@ const opDisablePolicyType = "DisablePolicyType"
 
 // DisablePolicyTypeRequest generates a "aws/request.Request" representing the
 // client's request for the DisablePolicyType operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DisablePolicyType for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DisablePolicyType method directly
-// instead.
+// See DisablePolicyType for more information on using the DisablePolicyType
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DisablePolicyTypeRequest method.
 //    req, resp := client.DisablePolicyTypeRequest(params)
@@ -3342,8 +3489,14 @@ func (c *Organizations) DisablePolicyTypeRequest(input *DisablePolicyTypeInput) 
 //   contains additional information about the violated limit:
 //
 //   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
-//   of accounts in an organization. Note: deleted and closed accounts still count
-//   toward your limit.
+//   of accounts in an organization. If you need more accounts, contact AWS Support
+//   to request an increase in your limit.
+//
+//   Or, The number of invitations that you tried to send would cause you to exceed
+//   the limit of accounts in your organization. Send fewer invitations, or contact
+//   AWS Support to request an increase in the number of accounts.
+//
+//   Note: deleted and closed accounts still count toward your limit.
 //
 //      * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 //      handshakes you can send in one day.
@@ -3365,8 +3518,15 @@ func (c *Organizations) DisablePolicyTypeRequest(input *DisablePolicyTypeInput) 
 //      policy from an entity that would cause the entity to have fewer than the
 //      minimum number of policies of a certain type required.
 //
-//      * ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account
-//      from an organization that was created from within organizations.
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account
+//      from the organization that does not yet have enough information to exist
+//      as a stand-alone account. This account requires you to first agree to
+//      the End-User License Agreement (EULA).
+//
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove
+//      an account from the organization that does not yet have enough information
+//      to exist as a stand-alone account. This account requires you to first
+//      complete phone verification.
 //
 //      * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization
 //      with this account, you first must associate a payment instrument, such
@@ -3400,6 +3560,9 @@ func (c *Organizations) DisablePolicyTypeRequest(input *DisablePolicyTypeInput) 
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -3480,19 +3643,18 @@ const opEnableAllFeatures = "EnableAllFeatures"
 
 // EnableAllFeaturesRequest generates a "aws/request.Request" representing the
 // client's request for the EnableAllFeatures operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See EnableAllFeatures for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the EnableAllFeatures method directly
-// instead.
+// See EnableAllFeatures for more information on using the EnableAllFeatures
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the EnableAllFeaturesRequest method.
 //    req, resp := client.EnableAllFeaturesRequest(params)
@@ -3568,6 +3730,10 @@ func (c *Organizations) EnableAllFeaturesRequest(input *EnableAllFeaturesInput) 
 //   Your account is not a member of an organization. To make this request, you
 //   must use the credentials of an account that belongs to an organization.
 //
+//   * ErrCodeConcurrentModificationException "ConcurrentModificationException"
+//   The target of the operation is currently being modified by a different request.
+//   Try again later.
+//
 //   * ErrCodeHandshakeConstraintViolationException "HandshakeConstraintViolationException"
 //   The requested operation would violate the constraint identified in the reason
 //   code.
@@ -3617,6 +3783,9 @@ func (c *Organizations) EnableAllFeaturesRequest(input *EnableAllFeaturesInput) 
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -3687,19 +3856,18 @@ const opEnablePolicyType = "EnablePolicyType"
 
 // EnablePolicyTypeRequest generates a "aws/request.Request" representing the
 // client's request for the EnablePolicyType operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See EnablePolicyType for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the EnablePolicyType method directly
-// instead.
+// See EnablePolicyType for more information on using the EnablePolicyType
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the EnablePolicyTypeRequest method.
 //    req, resp := client.EnablePolicyTypeRequest(params)
@@ -3765,8 +3933,14 @@ func (c *Organizations) EnablePolicyTypeRequest(input *EnablePolicyTypeInput) (r
 //   contains additional information about the violated limit:
 //
 //   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
-//   of accounts in an organization. Note: deleted and closed accounts still count
-//   toward your limit.
+//   of accounts in an organization. If you need more accounts, contact AWS Support
+//   to request an increase in your limit.
+//
+//   Or, The number of invitations that you tried to send would cause you to exceed
+//   the limit of accounts in your organization. Send fewer invitations, or contact
+//   AWS Support to request an increase in the number of accounts.
+//
+//   Note: deleted and closed accounts still count toward your limit.
 //
 //      * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 //      handshakes you can send in one day.
@@ -3788,8 +3962,15 @@ func (c *Organizations) EnablePolicyTypeRequest(input *EnablePolicyTypeInput) (r
 //      policy from an entity that would cause the entity to have fewer than the
 //      minimum number of policies of a certain type required.
 //
-//      * ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account
-//      from an organization that was created from within organizations.
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account
+//      from the organization that does not yet have enough information to exist
+//      as a stand-alone account. This account requires you to first agree to
+//      the End-User License Agreement (EULA).
+//
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove
+//      an account from the organization that does not yet have enough information
+//      to exist as a stand-alone account. This account requires you to first
+//      complete phone verification.
 //
 //      * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization
 //      with this account, you first must associate a payment instrument, such
@@ -3823,6 +4004,9 @@ func (c *Organizations) EnablePolicyTypeRequest(input *EnablePolicyTypeInput) (r
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -3906,19 +4090,18 @@ const opInviteAccountToOrganization = "InviteAccountToOrganization"
 
 // InviteAccountToOrganizationRequest generates a "aws/request.Request" representing the
 // client's request for the InviteAccountToOrganization operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See InviteAccountToOrganization for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the InviteAccountToOrganization method directly
-// instead.
+// See InviteAccountToOrganization for more information on using the InviteAccountToOrganization
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the InviteAccountToOrganizationRequest method.
 //    req, resp := client.InviteAccountToOrganizationRequest(params)
@@ -3952,6 +4135,13 @@ func (c *Organizations) InviteAccountToOrganizationRequest(input *InviteAccountT
 // is associated with the other account's owner. The invitation is implemented
 // as a Handshake whose details are in the response.
 //
+// You can invite AWS accounts only from the same reseller as the master account.
+// For example, if your organization's master account was created by Amazon
+// Internet Services Pvt. Ltd (AISPL), an AWS reseller in India, then you can
+// only invite other AISPL accounts to your organization. You can't combine
+// accounts from AISPL and AWS. For more information, see Consolidated Billing
+// in India (http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html).
+//
 // This operation can be called only from the organization's master account.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
@@ -3972,6 +4162,10 @@ func (c *Organizations) InviteAccountToOrganizationRequest(input *InviteAccountT
 //   * ErrCodeAWSOrganizationsNotInUseException "AWSOrganizationsNotInUseException"
 //   Your account is not a member of an organization. To make this request, you
 //   must use the credentials of an account that belongs to an organization.
+//
+//   * ErrCodeConcurrentModificationException "ConcurrentModificationException"
+//   The target of the operation is currently being modified by a different request.
+//   Try again later.
 //
 //   * ErrCodeHandshakeConstraintViolationException "HandshakeConstraintViolationException"
 //   The requested operation would violate the constraint identified in the reason
@@ -4029,6 +4223,9 @@ func (c *Organizations) InviteAccountToOrganizationRequest(input *InviteAccountT
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -4103,19 +4300,18 @@ const opLeaveOrganization = "LeaveOrganization"
 
 // LeaveOrganizationRequest generates a "aws/request.Request" representing the
 // client's request for the LeaveOrganization operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See LeaveOrganization for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the LeaveOrganization method directly
-// instead.
+// See LeaveOrganization for more information on using the LeaveOrganization
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the LeaveOrganizationRequest method.
 //    req, resp := client.LeaveOrganizationRequest(params)
@@ -4158,6 +4354,14 @@ func (c *Organizations) LeaveOrganizationRequest(input *LeaveOrganizationInput) 
 // can do, including preventing them from successfully calling LeaveOrganization
 // and leaving the organization.
 //
+// If you created the account using the AWS Organizations console, the Organizations
+// API, or the Organizations CLI commands, then you cannot remove the account.
+//
+// You can leave an organization only after you enable IAM user access to billing
+// in your account. For more information, see Activating Access to the Billing
+// and Cost Management Console (http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate)
+// in the AWS Billing and Cost Management User Guide.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -4194,8 +4398,14 @@ func (c *Organizations) LeaveOrganizationRequest(input *LeaveOrganizationInput) 
 //   contains additional information about the violated limit:
 //
 //   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
-//   of accounts in an organization. Note: deleted and closed accounts still count
-//   toward your limit.
+//   of accounts in an organization. If you need more accounts, contact AWS Support
+//   to request an increase in your limit.
+//
+//   Or, The number of invitations that you tried to send would cause you to exceed
+//   the limit of accounts in your organization. Send fewer invitations, or contact
+//   AWS Support to request an increase in the number of accounts.
+//
+//   Note: deleted and closed accounts still count toward your limit.
 //
 //      * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 //      handshakes you can send in one day.
@@ -4217,8 +4427,15 @@ func (c *Organizations) LeaveOrganizationRequest(input *LeaveOrganizationInput) 
 //      policy from an entity that would cause the entity to have fewer than the
 //      minimum number of policies of a certain type required.
 //
-//      * ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account
-//      from an organization that was created from within organizations.
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account
+//      from the organization that does not yet have enough information to exist
+//      as a stand-alone account. This account requires you to first agree to
+//      the End-User License Agreement (EULA).
+//
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove
+//      an account from the organization that does not yet have enough information
+//      to exist as a stand-alone account. This account requires you to first
+//      complete phone verification.
 //
 //      * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization
 //      with this account, you first must associate a payment instrument, such
@@ -4252,6 +4469,9 @@ func (c *Organizations) LeaveOrganizationRequest(input *LeaveOrganizationInput) 
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -4327,19 +4547,18 @@ const opListAccounts = "ListAccounts"
 
 // ListAccountsRequest generates a "aws/request.Request" representing the
 // client's request for the ListAccounts operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListAccounts for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListAccounts method directly
-// instead.
+// See ListAccounts for more information on using the ListAccounts
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListAccountsRequest method.
 //    req, resp := client.ListAccountsRequest(params)
@@ -4412,6 +4631,9 @@ func (c *Organizations) ListAccountsRequest(input *ListAccountsInput) (req *requ
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -4532,19 +4754,18 @@ const opListAccountsForParent = "ListAccountsForParent"
 
 // ListAccountsForParentRequest generates a "aws/request.Request" representing the
 // client's request for the ListAccountsForParent operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListAccountsForParent for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListAccountsForParent method directly
-// instead.
+// See ListAccountsForParent for more information on using the ListAccountsForParent
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListAccountsForParentRequest method.
 //    req, resp := client.ListAccountsForParentRequest(params)
@@ -4619,6 +4840,9 @@ func (c *Organizations) ListAccountsForParentRequest(input *ListAccountsForParen
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -4743,19 +4967,18 @@ const opListChildren = "ListChildren"
 
 // ListChildrenRequest generates a "aws/request.Request" representing the
 // client's request for the ListChildren operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListChildren for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListChildren method directly
-// instead.
+// See ListChildren for more information on using the ListChildren
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListChildrenRequest method.
 //    req, resp := client.ListChildrenRequest(params)
@@ -4827,6 +5050,9 @@ func (c *Organizations) ListChildrenRequest(input *ListChildrenInput) (req *requ
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -4951,19 +5177,18 @@ const opListCreateAccountStatus = "ListCreateAccountStatus"
 
 // ListCreateAccountStatusRequest generates a "aws/request.Request" representing the
 // client's request for the ListCreateAccountStatus operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListCreateAccountStatus for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListCreateAccountStatus method directly
-// instead.
+// See ListCreateAccountStatus for more information on using the ListCreateAccountStatus
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListCreateAccountStatusRequest method.
 //    req, resp := client.ListCreateAccountStatusRequest(params)
@@ -5036,6 +5261,9 @@ func (c *Organizations) ListCreateAccountStatusRequest(input *ListCreateAccountS
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -5156,19 +5384,18 @@ const opListHandshakesForAccount = "ListHandshakesForAccount"
 
 // ListHandshakesForAccountRequest generates a "aws/request.Request" representing the
 // client's request for the ListHandshakesForAccount operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListHandshakesForAccount for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListHandshakesForAccount method directly
-// instead.
+// See ListHandshakesForAccount for more information on using the ListHandshakesForAccount
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListHandshakesForAccountRequest method.
 //    req, resp := client.ListHandshakesForAccountRequest(params)
@@ -5206,6 +5433,10 @@ func (c *Organizations) ListHandshakesForAccountRequest(input *ListHandshakesFor
 // Lists the current handshakes that are associated with the account of the
 // requesting user.
 //
+// Handshakes that are ACCEPTED, DECLINED, or CANCELED appear in the results
+// of this API for only 30 days after changing to that state. After that they
+// are deleted and no longer accessible.
+//
 // This operation can be called from any account in the organization.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
@@ -5223,6 +5454,10 @@ func (c *Organizations) ListHandshakesForAccountRequest(input *ListHandshakesFor
 //   Access Management (http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html)
 //   in the IAM User Guide.
 //
+//   * ErrCodeConcurrentModificationException "ConcurrentModificationException"
+//   The target of the operation is currently being modified by a different request.
+//   Try again later.
+//
 //   * ErrCodeInvalidInputException "InvalidInputException"
 //   The requested operation failed because you provided invalid values for one
 //   or more of the request parameters. This exception includes a reason that
@@ -5237,6 +5472,9 @@ func (c *Organizations) ListHandshakesForAccountRequest(input *ListHandshakesFor
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -5357,19 +5595,18 @@ const opListHandshakesForOrganization = "ListHandshakesForOrganization"
 
 // ListHandshakesForOrganizationRequest generates a "aws/request.Request" representing the
 // client's request for the ListHandshakesForOrganization operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListHandshakesForOrganization for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListHandshakesForOrganization method directly
-// instead.
+// See ListHandshakesForOrganization for more information on using the ListHandshakesForOrganization
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListHandshakesForOrganizationRequest method.
 //    req, resp := client.ListHandshakesForOrganizationRequest(params)
@@ -5409,6 +5646,10 @@ func (c *Organizations) ListHandshakesForOrganizationRequest(input *ListHandshak
 // of handshake structures. Each structure contains details and status about
 // a handshake.
 //
+// Handshakes that are ACCEPTED, DECLINED, or CANCELED appear in the results
+// of this API for only 30 days after changing to that state. After that they
+// are deleted and no longer accessible.
+//
 // This operation can be called only from the organization's master account.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
@@ -5430,6 +5671,10 @@ func (c *Organizations) ListHandshakesForOrganizationRequest(input *ListHandshak
 //   Your account is not a member of an organization. To make this request, you
 //   must use the credentials of an account that belongs to an organization.
 //
+//   * ErrCodeConcurrentModificationException "ConcurrentModificationException"
+//   The target of the operation is currently being modified by a different request.
+//   Try again later.
+//
 //   * ErrCodeInvalidInputException "InvalidInputException"
 //   The requested operation failed because you provided invalid values for one
 //   or more of the request parameters. This exception includes a reason that
@@ -5444,6 +5689,9 @@ func (c *Organizations) ListHandshakesForOrganizationRequest(input *ListHandshak
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -5564,19 +5812,18 @@ const opListOrganizationalUnitsForParent = "ListOrganizationalUnitsForParent"
 
 // ListOrganizationalUnitsForParentRequest generates a "aws/request.Request" representing the
 // client's request for the ListOrganizationalUnitsForParent operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListOrganizationalUnitsForParent for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListOrganizationalUnitsForParent method directly
-// instead.
+// See ListOrganizationalUnitsForParent for more information on using the ListOrganizationalUnitsForParent
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListOrganizationalUnitsForParentRequest method.
 //    req, resp := client.ListOrganizationalUnitsForParentRequest(params)
@@ -5648,6 +5895,9 @@ func (c *Organizations) ListOrganizationalUnitsForParentRequest(input *ListOrgan
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -5772,19 +6022,18 @@ const opListParents = "ListParents"
 
 // ListParentsRequest generates a "aws/request.Request" representing the
 // client's request for the ListParents operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListParents for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListParents method directly
-// instead.
+// See ListParents for more information on using the ListParents
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListParentsRequest method.
 //    req, resp := client.ListParentsRequest(params)
@@ -5864,6 +6113,9 @@ func (c *Organizations) ListParentsRequest(input *ListParentsInput) (req *reques
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -5984,19 +6236,18 @@ const opListPolicies = "ListPolicies"
 
 // ListPoliciesRequest generates a "aws/request.Request" representing the
 // client's request for the ListPolicies operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListPolicies for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListPolicies method directly
-// instead.
+// See ListPolicies for more information on using the ListPolicies
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListPoliciesRequest method.
 //    req, resp := client.ListPoliciesRequest(params)
@@ -6068,6 +6319,9 @@ func (c *Organizations) ListPoliciesRequest(input *ListPoliciesInput) (req *requ
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -6188,19 +6442,18 @@ const opListPoliciesForTarget = "ListPoliciesForTarget"
 
 // ListPoliciesForTargetRequest generates a "aws/request.Request" representing the
 // client's request for the ListPoliciesForTarget operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListPoliciesForTarget for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListPoliciesForTarget method directly
-// instead.
+// See ListPoliciesForTarget for more information on using the ListPoliciesForTarget
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListPoliciesForTargetRequest method.
 //    req, resp := client.ListPoliciesForTargetRequest(params)
@@ -6274,6 +6527,9 @@ func (c *Organizations) ListPoliciesForTargetRequest(input *ListPoliciesForTarge
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -6397,19 +6653,18 @@ const opListRoots = "ListRoots"
 
 // ListRootsRequest generates a "aws/request.Request" representing the
 // client's request for the ListRoots operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListRoots for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListRoots method directly
-// instead.
+// See ListRoots for more information on using the ListRoots
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListRootsRequest method.
 //    req, resp := client.ListRootsRequest(params)
@@ -6481,6 +6736,9 @@ func (c *Organizations) ListRootsRequest(input *ListRootsInput) (req *request.Re
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -6601,19 +6859,18 @@ const opListTargetsForPolicy = "ListTargetsForPolicy"
 
 // ListTargetsForPolicyRequest generates a "aws/request.Request" representing the
 // client's request for the ListTargetsForPolicy operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListTargetsForPolicy for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListTargetsForPolicy method directly
-// instead.
+// See ListTargetsForPolicy for more information on using the ListTargetsForPolicy
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListTargetsForPolicyRequest method.
 //    req, resp := client.ListTargetsForPolicyRequest(params)
@@ -6685,6 +6942,9 @@ func (c *Organizations) ListTargetsForPolicyRequest(input *ListTargetsForPolicyI
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -6808,19 +7068,18 @@ const opMoveAccount = "MoveAccount"
 
 // MoveAccountRequest generates a "aws/request.Request" representing the
 // client's request for the MoveAccount operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See MoveAccount for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the MoveAccount method directly
-// instead.
+// See MoveAccount for more information on using the MoveAccount
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the MoveAccountRequest method.
 //    req, resp := client.MoveAccountRequest(params)
@@ -6885,6 +7144,9 @@ func (c *Organizations) MoveAccountRequest(input *MoveAccountInput) (req *reques
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -6978,19 +7240,18 @@ const opRemoveAccountFromOrganization = "RemoveAccountFromOrganization"
 
 // RemoveAccountFromOrganizationRequest generates a "aws/request.Request" representing the
 // client's request for the RemoveAccountFromOrganization operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See RemoveAccountFromOrganization for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the RemoveAccountFromOrganization method directly
-// instead.
+// See RemoveAccountFromOrganization for more information on using the RemoveAccountFromOrganization
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the RemoveAccountFromOrganizationRequest method.
 //    req, resp := client.RemoveAccountFromOrganizationRequest(params)
@@ -7032,8 +7293,15 @@ func (c *Organizations) RemoveAccountFromOrganizationRequest(input *RemoveAccoun
 // This operation can be called only from the organization's master account.
 // Member accounts can remove themselves with LeaveOrganization instead.
 //
-// You can remove only existing accounts that were invited to join the organization.
-// You cannot remove accounts that were created by AWS Organizations.
+// You can remove only accounts that were created outside your organization
+// and invited to join. If you created the account using the AWS Organizations
+// console, the Organizations API, or the Organizations CLI commands, then you
+// cannot remove the account.
+//
+// You can remove a member account only after you enable IAM user access to
+// billing in the member account. For more information, see Activating Access
+// to the Billing and Cost Management Console (http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate)
+// in the AWS Billing and Cost Management User Guide.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -7071,8 +7339,14 @@ func (c *Organizations) RemoveAccountFromOrganizationRequest(input *RemoveAccoun
 //   contains additional information about the violated limit:
 //
 //   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
-//   of accounts in an organization. Note: deleted and closed accounts still count
-//   toward your limit.
+//   of accounts in an organization. If you need more accounts, contact AWS Support
+//   to request an increase in your limit.
+//
+//   Or, The number of invitations that you tried to send would cause you to exceed
+//   the limit of accounts in your organization. Send fewer invitations, or contact
+//   AWS Support to request an increase in the number of accounts.
+//
+//   Note: deleted and closed accounts still count toward your limit.
 //
 //      * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 //      handshakes you can send in one day.
@@ -7094,8 +7368,15 @@ func (c *Organizations) RemoveAccountFromOrganizationRequest(input *RemoveAccoun
 //      policy from an entity that would cause the entity to have fewer than the
 //      minimum number of policies of a certain type required.
 //
-//      * ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account
-//      from an organization that was created from within organizations.
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account
+//      from the organization that does not yet have enough information to exist
+//      as a stand-alone account. This account requires you to first agree to
+//      the End-User License Agreement (EULA).
+//
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove
+//      an account from the organization that does not yet have enough information
+//      to exist as a stand-alone account. This account requires you to first
+//      complete phone verification.
 //
 //      * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization
 //      with this account, you first must associate a payment instrument, such
@@ -7129,6 +7410,9 @@ func (c *Organizations) RemoveAccountFromOrganizationRequest(input *RemoveAccoun
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -7204,19 +7488,18 @@ const opUpdateOrganizationalUnit = "UpdateOrganizationalUnit"
 
 // UpdateOrganizationalUnitRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateOrganizationalUnit operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdateOrganizationalUnit for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdateOrganizationalUnit method directly
-// instead.
+// See UpdateOrganizationalUnit for more information on using the UpdateOrganizationalUnit
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdateOrganizationalUnitRequest method.
 //    req, resp := client.UpdateOrganizationalUnitRequest(params)
@@ -7292,6 +7575,9 @@ func (c *Organizations) UpdateOrganizationalUnitRequest(input *UpdateOrganizatio
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
 //
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
+//
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
 //
@@ -7365,19 +7651,18 @@ const opUpdatePolicy = "UpdatePolicy"
 
 // UpdatePolicyRequest generates a "aws/request.Request" representing the
 // client's request for the UpdatePolicy operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdatePolicy for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdatePolicy method directly
-// instead.
+// See UpdatePolicy for more information on using the UpdatePolicy
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdatePolicyRequest method.
 //    req, resp := client.UpdatePolicyRequest(params)
@@ -7443,8 +7728,14 @@ func (c *Organizations) UpdatePolicyRequest(input *UpdatePolicyInput) (req *requ
 //   contains additional information about the violated limit:
 //
 //   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
-//   of accounts in an organization. Note: deleted and closed accounts still count
-//   toward your limit.
+//   of accounts in an organization. If you need more accounts, contact AWS Support
+//   to request an increase in your limit.
+//
+//   Or, The number of invitations that you tried to send would cause you to exceed
+//   the limit of accounts in your organization. Send fewer invitations, or contact
+//   AWS Support to request an increase in the number of accounts.
+//
+//   Note: deleted and closed accounts still count toward your limit.
 //
 //      * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 //      handshakes you can send in one day.
@@ -7466,8 +7757,15 @@ func (c *Organizations) UpdatePolicyRequest(input *UpdatePolicyInput) (req *requ
 //      policy from an entity that would cause the entity to have fewer than the
 //      minimum number of policies of a certain type required.
 //
-//      * ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account
-//      from an organization that was created from within organizations.
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account
+//      from the organization that does not yet have enough information to exist
+//      as a stand-alone account. This account requires you to first agree to
+//      the End-User License Agreement (EULA).
+//
+//      * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove
+//      an account from the organization that does not yet have enough information
+//      to exist as a stand-alone account. This account requires you to first
+//      complete phone verification.
 //
 //      * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization
 //      with this account, you first must associate a payment instrument, such
@@ -7504,6 +7802,9 @@ func (c *Organizations) UpdatePolicyRequest(input *UpdatePolicyInput) (req *requ
 //      * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 //
 //      * INVALID_ENUM: You specified a value that is not valid for that parameter.
+//
+//      * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid
+//      characters.
 //
 //      * INVALID_LIST_MEMBER: You provided a list to a parameter that contains
 //      at least one invalid value.
@@ -9339,6 +9640,9 @@ func (s *EnablePolicyTypeOutput) SetRoot(v *Root) *EnablePolicyTypeOutput {
 // master account (the originator) invites another account (the recipient) to
 // join its organization, the two accounts exchange information as a series
 // of handshake requests and responses.
+//
+// Note: Handshakes that are CANCELED, ACCEPTED, or DECLINED show up in lists
+// for only 30 days after entering that state After that they are deleted.
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/Handshake
 type Handshake struct {
 	_ struct{} `type:"structure"`
@@ -12016,6 +12320,12 @@ const (
 	// ConstraintViolationExceptionReasonAccountCannotLeaveOrganization is a ConstraintViolationExceptionReason enum value
 	ConstraintViolationExceptionReasonAccountCannotLeaveOrganization = "ACCOUNT_CANNOT_LEAVE_ORGANIZATION"
 
+	// ConstraintViolationExceptionReasonAccountCannotLeaveWithoutEula is a ConstraintViolationExceptionReason enum value
+	ConstraintViolationExceptionReasonAccountCannotLeaveWithoutEula = "ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA"
+
+	// ConstraintViolationExceptionReasonAccountCannotLeaveWithoutPhoneVerification is a ConstraintViolationExceptionReason enum value
+	ConstraintViolationExceptionReasonAccountCannotLeaveWithoutPhoneVerification = "ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION"
+
 	// ConstraintViolationExceptionReasonMasterAccountPaymentInstrumentRequired is a ConstraintViolationExceptionReason enum value
 	ConstraintViolationExceptionReasonMasterAccountPaymentInstrumentRequired = "MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED"
 
@@ -12196,6 +12506,9 @@ const (
 
 	// InvalidInputExceptionReasonMovingAccountBetweenDifferentRoots is a InvalidInputExceptionReason enum value
 	InvalidInputExceptionReasonMovingAccountBetweenDifferentRoots = "MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS"
+
+	// InvalidInputExceptionReasonInvalidFullNameTarget is a InvalidInputExceptionReason enum value
+	InvalidInputExceptionReasonInvalidFullNameTarget = "INVALID_FULL_NAME_TARGET"
 )
 
 const (

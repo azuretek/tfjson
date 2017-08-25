@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/hashicorp/terraform/backend"
+	"github.com/hashicorp/terraform/config"
 	"github.com/hashicorp/terraform/state/remote"
 	"github.com/hashicorp/terraform/terraform"
 )
@@ -34,11 +35,11 @@ func TestBackend_impl(t *testing.T) {
 func TestBackendConfig(t *testing.T) {
 	testACC(t)
 	config := map[string]interface{}{
-		"region":     "us-west-1",
-		"bucket":     "tf-test",
-		"key":        "state",
-		"encrypt":    true,
-		"lock_table": "dynamoTable",
+		"region":         "us-west-1",
+		"bucket":         "tf-test",
+		"key":            "state",
+		"encrypt":        true,
+		"dynamodb_table": "dynamoTable",
 	}
 
 	b := backend.TestBackendConfig(t, New(), config).(*Backend)
@@ -62,6 +63,28 @@ func TestBackendConfig(t *testing.T) {
 	}
 	if credentials.SecretAccessKey == "" {
 		t.Fatalf("No Secret Access Key was populated")
+	}
+}
+
+func TestBackendConfig_invalidKey(t *testing.T) {
+	testACC(t)
+	cfg := map[string]interface{}{
+		"region":         "us-west-1",
+		"bucket":         "tf-test",
+		"key":            "/leading-slash",
+		"encrypt":        true,
+		"dynamodb_table": "dynamoTable",
+	}
+
+	rawCfg, err := config.NewRawConfig(cfg)
+	if err != nil {
+		t.Fatal(err)
+	}
+	resCfg := terraform.NewResourceConfig(rawCfg)
+
+	_, errs := New().Validate(resCfg)
+	if len(errs) != 1 {
+		t.Fatal("expected config validation error")
 	}
 }
 
@@ -90,17 +113,17 @@ func TestBackendLocked(t *testing.T) {
 	keyName := "test/state"
 
 	b1 := backend.TestBackendConfig(t, New(), map[string]interface{}{
-		"bucket":     bucketName,
-		"key":        keyName,
-		"encrypt":    true,
-		"lock_table": bucketName,
+		"bucket":         bucketName,
+		"key":            keyName,
+		"encrypt":        true,
+		"dynamodb_table": bucketName,
 	}).(*Backend)
 
 	b2 := backend.TestBackendConfig(t, New(), map[string]interface{}{
-		"bucket":     bucketName,
-		"key":        keyName,
-		"encrypt":    true,
-		"lock_table": bucketName,
+		"bucket":         bucketName,
+		"key":            keyName,
+		"encrypt":        true,
+		"dynamodb_table": bucketName,
 	}).(*Backend)
 
 	createS3Bucket(t, b1.s3Client, bucketName)
@@ -139,7 +162,7 @@ func TestBackendExtraPaths(t *testing.T) {
 		serverSideEncryption: b.serverSideEncryption,
 		acl:                  b.acl,
 		kmsKeyID:             b.kmsKeyID,
-		lockTable:            b.lockTable,
+		ddbTable:             b.ddbTable,
 	}
 
 	stateMgr := &remote.State{Client: client}
@@ -159,7 +182,7 @@ func TestBackendExtraPaths(t *testing.T) {
 	}
 
 	// put a state in an env directory name
-	client.path = keyEnvPrefix + "/error"
+	client.path = b.workspaceKeyPrefix + "/error"
 	stateMgr.WriteState(terraform.NewState())
 	if err := stateMgr.PersistState(); err != nil {
 		t.Fatal(err)
@@ -169,7 +192,7 @@ func TestBackendExtraPaths(t *testing.T) {
 	}
 
 	// add state with the wrong key for an existing env
-	client.path = keyEnvPrefix + "/s2/notTestState"
+	client.path = b.workspaceKeyPrefix + "/s2/notTestState"
 	stateMgr.WriteState(terraform.NewState())
 	if err := stateMgr.PersistState(); err != nil {
 		t.Fatal(err)
@@ -202,7 +225,7 @@ func TestBackendExtraPaths(t *testing.T) {
 	s2 = s2Mgr.State()
 
 	// add a state with a key that matches an existing environment dir name
-	client.path = keyEnvPrefix + "/s2/"
+	client.path = b.workspaceKeyPrefix + "/s2/"
 	stateMgr.WriteState(terraform.NewState())
 	if err := stateMgr.PersistState(); err != nil {
 		t.Fatal(err)

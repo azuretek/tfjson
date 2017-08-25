@@ -17,19 +17,18 @@ const opCreateBotVersion = "CreateBotVersion"
 
 // CreateBotVersionRequest generates a "aws/request.Request" representing the
 // client's request for the CreateBotVersion operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateBotVersion for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateBotVersion method directly
-// instead.
+// See CreateBotVersion for more information on using the CreateBotVersion
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateBotVersionRequest method.
 //    req, resp := client.CreateBotVersionRequest(params)
@@ -125,19 +124,18 @@ const opCreateIntentVersion = "CreateIntentVersion"
 
 // CreateIntentVersionRequest generates a "aws/request.Request" representing the
 // client's request for the CreateIntentVersion operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateIntentVersion for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateIntentVersion method directly
-// instead.
+// See CreateIntentVersion for more information on using the CreateIntentVersion
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateIntentVersionRequest method.
 //    req, resp := client.CreateIntentVersionRequest(params)
@@ -235,19 +233,18 @@ const opCreateSlotTypeVersion = "CreateSlotTypeVersion"
 
 // CreateSlotTypeVersionRequest generates a "aws/request.Request" representing the
 // client's request for the CreateSlotTypeVersion operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateSlotTypeVersion for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateSlotTypeVersion method directly
-// instead.
+// See CreateSlotTypeVersion for more information on using the CreateSlotTypeVersion
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateSlotTypeVersionRequest method.
 //    req, resp := client.CreateSlotTypeVersionRequest(params)
@@ -344,19 +341,18 @@ const opDeleteBot = "DeleteBot"
 
 // DeleteBotRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteBot operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteBot for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteBot method directly
-// instead.
+// See DeleteBot for more information on using the DeleteBot
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteBotRequest method.
 //    req, resp := client.DeleteBotRequest(params)
@@ -388,7 +384,7 @@ func (c *LexModelBuildingService) DeleteBotRequest(input *DeleteBotInput) (req *
 // DeleteBot API operation for Amazon Lex Model Building Service.
 //
 // Deletes all versions of the bot, including the $LATEST version. To delete
-// a specific version of the bot, use the operation.
+// a specific version of the bot, use the DeleteBotVersion operation.
 //
 // If a bot has an alias, you can't delete it. Instead, the DeleteBot operation
 // returns a ResourceInUseException exception that includes a reference to the
@@ -462,19 +458,18 @@ const opDeleteBotAlias = "DeleteBotAlias"
 
 // DeleteBotAliasRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteBotAlias operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteBotAlias for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteBotAlias method directly
-// instead.
+// See DeleteBotAlias for more information on using the DeleteBotAlias
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteBotAliasRequest method.
 //    req, resp := client.DeleteBotAliasRequest(params)
@@ -579,19 +574,18 @@ const opDeleteBotChannelAssociation = "DeleteBotChannelAssociation"
 
 // DeleteBotChannelAssociationRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteBotChannelAssociation operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteBotChannelAssociation for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteBotChannelAssociation method directly
-// instead.
+// See DeleteBotChannelAssociation for more information on using the DeleteBotChannelAssociation
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteBotChannelAssociationRequest method.
 //    req, resp := client.DeleteBotChannelAssociationRequest(params)
@@ -678,19 +672,18 @@ const opDeleteBotVersion = "DeleteBotVersion"
 
 // DeleteBotVersionRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteBotVersion operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteBotVersion for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteBotVersion method directly
-// instead.
+// See DeleteBotVersion for more information on using the DeleteBotVersion
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteBotVersionRequest method.
 //    req, resp := client.DeleteBotVersionRequest(params)
@@ -722,7 +715,7 @@ func (c *LexModelBuildingService) DeleteBotVersionRequest(input *DeleteBotVersio
 // DeleteBotVersion API operation for Amazon Lex Model Building Service.
 //
 // Deletes a specific version of a bot. To delete all versions of a bot, use
-// the operation.
+// the DeleteBot operation.
 //
 // This operation requires permissions for the lex:DeleteBotVersion action.
 //
@@ -790,19 +783,18 @@ const opDeleteIntent = "DeleteIntent"
 
 // DeleteIntentRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteIntent operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteIntent for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteIntent method directly
-// instead.
+// See DeleteIntent for more information on using the DeleteIntent
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteIntentRequest method.
 //    req, resp := client.DeleteIntentRequest(params)
@@ -834,7 +826,7 @@ func (c *LexModelBuildingService) DeleteIntentRequest(input *DeleteIntentInput) 
 // DeleteIntent API operation for Amazon Lex Model Building Service.
 //
 // Deletes all versions of the intent, including the $LATEST version. To delete
-// a specific version of the intent, use the operation.
+// a specific version of the intent, use the DeleteIntentVersion operation.
 //
 // You can delete a version of an intent only if it is not referenced. To delete
 // an intent that is referred to in one or more bots (see how-it-works), you
@@ -912,19 +904,18 @@ const opDeleteIntentVersion = "DeleteIntentVersion"
 
 // DeleteIntentVersionRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteIntentVersion operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteIntentVersion for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteIntentVersion method directly
-// instead.
+// See DeleteIntentVersion for more information on using the DeleteIntentVersion
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteIntentVersionRequest method.
 //    req, resp := client.DeleteIntentVersionRequest(params)
@@ -956,7 +947,7 @@ func (c *LexModelBuildingService) DeleteIntentVersionRequest(input *DeleteIntent
 // DeleteIntentVersion API operation for Amazon Lex Model Building Service.
 //
 // Deletes a specific version of an intent. To delete all versions of a intent,
-// use the operation.
+// use the DeleteIntent operation.
 //
 // This operation requires permissions for the lex:DeleteIntentVersion action.
 //
@@ -1024,19 +1015,18 @@ const opDeleteSlotType = "DeleteSlotType"
 
 // DeleteSlotTypeRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteSlotType operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteSlotType for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteSlotType method directly
-// instead.
+// See DeleteSlotType for more information on using the DeleteSlotType
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteSlotTypeRequest method.
 //    req, resp := client.DeleteSlotTypeRequest(params)
@@ -1068,7 +1058,8 @@ func (c *LexModelBuildingService) DeleteSlotTypeRequest(input *DeleteSlotTypeInp
 // DeleteSlotType API operation for Amazon Lex Model Building Service.
 //
 // Deletes all versions of the slot type, including the $LATEST version. To
-// delete a specific version of the slot type, use the operation.
+// delete a specific version of the slot type, use the DeleteSlotTypeVersion
+// operation.
 //
 // You can delete a version of a slot type only if it is not referenced. To
 // delete a slot type that is referred to in one or more intents, you must remove
@@ -1147,19 +1138,18 @@ const opDeleteSlotTypeVersion = "DeleteSlotTypeVersion"
 
 // DeleteSlotTypeVersionRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteSlotTypeVersion operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteSlotTypeVersion for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteSlotTypeVersion method directly
-// instead.
+// See DeleteSlotTypeVersion for more information on using the DeleteSlotTypeVersion
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteSlotTypeVersionRequest method.
 //    req, resp := client.DeleteSlotTypeVersionRequest(params)
@@ -1191,7 +1181,7 @@ func (c *LexModelBuildingService) DeleteSlotTypeVersionRequest(input *DeleteSlot
 // DeleteSlotTypeVersion API operation for Amazon Lex Model Building Service.
 //
 // Deletes a specific version of a slot type. To delete all versions of a slot
-// type, use the operation.
+// type, use the DeleteSlotType operation.
 //
 // This operation requires permissions for the lex:DeleteSlotTypeVersion action.
 //
@@ -1259,19 +1249,18 @@ const opDeleteUtterances = "DeleteUtterances"
 
 // DeleteUtterancesRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteUtterances operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteUtterances for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteUtterances method directly
-// instead.
+// See DeleteUtterances for more information on using the DeleteUtterances
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteUtterancesRequest method.
 //    req, resp := client.DeleteUtterancesRequest(params)
@@ -1306,8 +1295,8 @@ func (c *LexModelBuildingService) DeleteUtterancesRequest(input *DeleteUtterance
 //
 // Amazon Lex stores the utterances that users send to your bot unless the childDirected
 // field in the bot is set to true. Utterances are stored for 15 days for use
-// with the operation, and then stored indefinately for use in improving the
-// ability of your bot to respond to user input.
+// with the GetUtterancesView operation, and then stored indefinately for use
+// in improving the ability of your bot to respond to user input.
 //
 // Use the DeleteStoredUtterances operation to manually delete stored utterances
 // for a specific user.
@@ -1362,19 +1351,18 @@ const opGetBot = "GetBot"
 
 // GetBotRequest generates a "aws/request.Request" representing the
 // client's request for the GetBot operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetBot for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetBot method directly
-// instead.
+// See GetBot for more information on using the GetBot
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetBotRequest method.
 //    req, resp := client.GetBotRequest(params)
@@ -1456,19 +1444,18 @@ const opGetBotAlias = "GetBotAlias"
 
 // GetBotAliasRequest generates a "aws/request.Request" representing the
 // client's request for the GetBotAlias operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetBotAlias for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetBotAlias method directly
-// instead.
+// See GetBotAlias for more information on using the GetBotAlias
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetBotAliasRequest method.
 //    req, resp := client.GetBotAliasRequest(params)
@@ -1550,19 +1537,18 @@ const opGetBotAliases = "GetBotAliases"
 
 // GetBotAliasesRequest generates a "aws/request.Request" representing the
 // client's request for the GetBotAliases operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetBotAliases for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetBotAliases method directly
-// instead.
+// See GetBotAliases for more information on using the GetBotAliases
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetBotAliasesRequest method.
 //    req, resp := client.GetBotAliasesRequest(params)
@@ -1695,19 +1681,18 @@ const opGetBotChannelAssociation = "GetBotChannelAssociation"
 
 // GetBotChannelAssociationRequest generates a "aws/request.Request" representing the
 // client's request for the GetBotChannelAssociation operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetBotChannelAssociation for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetBotChannelAssociation method directly
-// instead.
+// See GetBotChannelAssociation for more information on using the GetBotChannelAssociation
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetBotChannelAssociationRequest method.
 //    req, resp := client.GetBotChannelAssociationRequest(params)
@@ -1790,19 +1775,18 @@ const opGetBotChannelAssociations = "GetBotChannelAssociations"
 
 // GetBotChannelAssociationsRequest generates a "aws/request.Request" representing the
 // client's request for the GetBotChannelAssociations operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetBotChannelAssociations for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetBotChannelAssociations method directly
-// instead.
+// See GetBotChannelAssociations for more information on using the GetBotChannelAssociations
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetBotChannelAssociationsRequest method.
 //    req, resp := client.GetBotChannelAssociationsRequest(params)
@@ -1936,19 +1920,18 @@ const opGetBotVersions = "GetBotVersions"
 
 // GetBotVersionsRequest generates a "aws/request.Request" representing the
 // client's request for the GetBotVersions operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetBotVersions for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetBotVersions method directly
-// instead.
+// See GetBotVersions for more information on using the GetBotVersions
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetBotVersionsRequest method.
 //    req, resp := client.GetBotVersionsRequest(params)
@@ -2093,19 +2076,18 @@ const opGetBots = "GetBots"
 
 // GetBotsRequest generates a "aws/request.Request" representing the
 // client's request for the GetBots operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetBots for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetBots method directly
-// instead.
+// See GetBots for more information on using the GetBots
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetBotsRequest method.
 //    req, resp := client.GetBotsRequest(params)
@@ -2249,19 +2231,18 @@ const opGetBuiltinIntent = "GetBuiltinIntent"
 
 // GetBuiltinIntentRequest generates a "aws/request.Request" representing the
 // client's request for the GetBuiltinIntent operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetBuiltinIntent for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetBuiltinIntent method directly
-// instead.
+// See GetBuiltinIntent for more information on using the GetBuiltinIntent
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetBuiltinIntentRequest method.
 //    req, resp := client.GetBuiltinIntentRequest(params)
@@ -2342,19 +2323,18 @@ const opGetBuiltinIntents = "GetBuiltinIntents"
 
 // GetBuiltinIntentsRequest generates a "aws/request.Request" representing the
 // client's request for the GetBuiltinIntents operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetBuiltinIntents for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetBuiltinIntents method directly
-// instead.
+// See GetBuiltinIntents for more information on using the GetBuiltinIntents
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetBuiltinIntentsRequest method.
 //    req, resp := client.GetBuiltinIntentsRequest(params)
@@ -2487,19 +2467,18 @@ const opGetBuiltinSlotTypes = "GetBuiltinSlotTypes"
 
 // GetBuiltinSlotTypesRequest generates a "aws/request.Request" representing the
 // client's request for the GetBuiltinSlotTypes operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetBuiltinSlotTypes for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetBuiltinSlotTypes method directly
-// instead.
+// See GetBuiltinSlotTypes for more information on using the GetBuiltinSlotTypes
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetBuiltinSlotTypesRequest method.
 //    req, resp := client.GetBuiltinSlotTypesRequest(params)
@@ -2635,19 +2614,18 @@ const opGetIntent = "GetIntent"
 
 // GetIntentRequest generates a "aws/request.Request" representing the
 // client's request for the GetIntent operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetIntent for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetIntent method directly
-// instead.
+// See GetIntent for more information on using the GetIntent
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetIntentRequest method.
 //    req, resp := client.GetIntentRequest(params)
@@ -2729,19 +2707,18 @@ const opGetIntentVersions = "GetIntentVersions"
 
 // GetIntentVersionsRequest generates a "aws/request.Request" representing the
 // client's request for the GetIntentVersions operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetIntentVersions for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetIntentVersions method directly
-// instead.
+// See GetIntentVersions for more information on using the GetIntentVersions
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetIntentVersionsRequest method.
 //    req, resp := client.GetIntentVersionsRequest(params)
@@ -2886,19 +2863,18 @@ const opGetIntents = "GetIntents"
 
 // GetIntentsRequest generates a "aws/request.Request" representing the
 // client's request for the GetIntents operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetIntents for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetIntents method directly
-// instead.
+// See GetIntents for more information on using the GetIntents
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetIntentsRequest method.
 //    req, resp := client.GetIntentsRequest(params)
@@ -3041,19 +3017,18 @@ const opGetSlotType = "GetSlotType"
 
 // GetSlotTypeRequest generates a "aws/request.Request" representing the
 // client's request for the GetSlotType operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetSlotType for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetSlotType method directly
-// instead.
+// See GetSlotType for more information on using the GetSlotType
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetSlotTypeRequest method.
 //    req, resp := client.GetSlotTypeRequest(params)
@@ -3135,19 +3110,18 @@ const opGetSlotTypeVersions = "GetSlotTypeVersions"
 
 // GetSlotTypeVersionsRequest generates a "aws/request.Request" representing the
 // client's request for the GetSlotTypeVersions operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetSlotTypeVersions for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetSlotTypeVersions method directly
-// instead.
+// See GetSlotTypeVersions for more information on using the GetSlotTypeVersions
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetSlotTypeVersionsRequest method.
 //    req, resp := client.GetSlotTypeVersionsRequest(params)
@@ -3292,19 +3266,18 @@ const opGetSlotTypes = "GetSlotTypes"
 
 // GetSlotTypesRequest generates a "aws/request.Request" representing the
 // client's request for the GetSlotTypes operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetSlotTypes for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetSlotTypes method directly
-// instead.
+// See GetSlotTypes for more information on using the GetSlotTypes
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetSlotTypesRequest method.
 //    req, resp := client.GetSlotTypesRequest(params)
@@ -3447,19 +3420,18 @@ const opGetUtterancesView = "GetUtterancesView"
 
 // GetUtterancesViewRequest generates a "aws/request.Request" representing the
 // client's request for the GetUtterancesView operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetUtterancesView for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetUtterancesView method directly
-// instead.
+// See GetUtterancesView for more information on using the GetUtterancesView
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetUtterancesViewRequest method.
 //    req, resp := client.GetUtterancesViewRequest(params)
@@ -3509,7 +3481,7 @@ func (c *LexModelBuildingService) GetUtterancesViewRequest(input *GetUtterancesV
 //
 // If the bot's childDirected field is set to true, utterances for the bot are
 // not stored and cannot be retrieved with the GetUtterancesView operation.
-// For more information, see .
+// For more information, see PutBot.
 //
 // This operation requires permissions for the lex:GetUtterancesView action.
 //
@@ -3557,19 +3529,18 @@ const opPutBot = "PutBot"
 
 // PutBotRequest generates a "aws/request.Request" representing the
 // client's request for the PutBot operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See PutBot for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the PutBot method directly
-// instead.
+// See PutBot for more information on using the PutBot
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the PutBotRequest method.
 //    req, resp := client.PutBotRequest(params)
@@ -3599,10 +3570,10 @@ func (c *LexModelBuildingService) PutBotRequest(input *PutBotInput) (req *reques
 // PutBot API operation for Amazon Lex Model Building Service.
 //
 // Creates an Amazon Lex conversational bot or replaces an existing bot. When
-// you create or update a bot you only required to specify a name. You can use
-// this to add intents later, or to remove intents from an existing bot. When
-// you create a bot with a name only, the bot is created or updated but Amazon
-// Lex returns the response FAILED. You can build the bot after you add one or more intents. For more information
+// you create or update a bot you are only required to specify a name. You can
+// use this to add intents later, or to remove intents from an existing bot.
+// When you create a bot with a name only, the bot is created or updated but
+// Amazon Lex returns the response FAILED. You can build the bot after you add one or more intents. For more information
 // about Amazon Lex bots, see how-it-works.
 //
 // If you specify the name of an existing bot, the fields in the request replace
@@ -3663,19 +3634,18 @@ const opPutBotAlias = "PutBotAlias"
 
 // PutBotAliasRequest generates a "aws/request.Request" representing the
 // client's request for the PutBotAlias operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See PutBotAlias for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the PutBotAlias method directly
-// instead.
+// See PutBotAlias for more information on using the PutBotAlias
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the PutBotAliasRequest method.
 //    req, resp := client.PutBotAliasRequest(params)
@@ -3761,19 +3731,18 @@ const opPutIntent = "PutIntent"
 
 // PutIntentRequest generates a "aws/request.Request" representing the
 // client's request for the PutIntent operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See PutIntent for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the PutIntent method directly
-// instead.
+// See PutIntent for more information on using the PutIntent
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the PutIntentRequest method.
 //    req, resp := client.PutIntentRequest(params)
@@ -3898,19 +3867,18 @@ const opPutSlotType = "PutSlotType"
 
 // PutSlotTypeRequest generates a "aws/request.Request" representing the
 // client's request for the PutSlotType operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See PutSlotType for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the PutSlotType method directly
-// instead.
+// See PutSlotType for more information on using the PutSlotType
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the PutSlotTypeRequest method.
 //    req, resp := client.PutSlotTypeRequest(params)
@@ -4456,7 +4424,7 @@ type CreateBotVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The message that Amazon Lex uses to abort a conversation. For more information,
-	// see .
+	// see PutBot.
 	AbortStatement *Statement `locationName:"abortStatement" type:"structure"`
 
 	// Checksum identifying the version of the bot that was created.
@@ -4488,7 +4456,7 @@ type CreateBotVersionOutput struct {
 	ChildDirected *bool `locationName:"childDirected" type:"boolean"`
 
 	// The message that Amazon Lex uses when it doesn't understand the user's request.
-	// For more information, see .
+	// For more information, see PutBot.
 	ClarificationPrompt *Prompt `locationName:"clarificationPrompt" type:"structure"`
 
 	// The date when the bot version was created.
@@ -4502,10 +4470,10 @@ type CreateBotVersionOutput struct {
 	FailureReason *string `locationName:"failureReason" type:"string"`
 
 	// The maximum time in seconds that Amazon Lex retains the data gathered in
-	// a conversation. For more information, see .
+	// a conversation. For more information, see PutBot.
 	IdleSessionTTLInSeconds *int64 `locationName:"idleSessionTTLInSeconds" min:"60" type:"integer"`
 
-	// An array of Intent objects. For more information, see .
+	// An array of Intent objects. For more information, see PutBot.
 	Intents []*Intent `locationName:"intents" min:"1" type:"list"`
 
 	// The date when the $LATEST version of this bot was updated.
@@ -4526,7 +4494,7 @@ type CreateBotVersionOutput struct {
 	// The version of the bot.
 	Version *string `locationName:"version" min:"1" type:"string"`
 
-	// The Amazon Parrot voice ID that Amazon Lex uses for voice interactions with
+	// The Amazon Polly voice ID that Amazon Lex uses for voice interactions with
 	// the user.
 	VoiceId *string `locationName:"voiceId" type:"string"`
 }
@@ -5211,7 +5179,7 @@ type DeleteBotVersionInput struct {
 	Name *string `location:"uri" locationName:"name" min:"2" type:"string" required:"true"`
 
 	// The version of the bot to delete. You cannot delete the $LATEST version of
-	// the bot. To delete the $LATEST version, use the operation.
+	// the bot. To delete the $LATEST version, use the DeleteBot operation.
 	//
 	// Version is a required field
 	Version *string `location:"uri" locationName:"version" min:"1" type:"string" required:"true"`
@@ -5343,7 +5311,7 @@ type DeleteIntentVersionInput struct {
 	Name *string `location:"uri" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The version of the intent to delete. You cannot delete the $LATEST version
-	// of the intent. To delete the $LATEST version, use the operation.
+	// of the intent. To delete the $LATEST version, use the DeleteIntent operation.
 	//
 	// Version is a required field
 	Version *string `location:"uri" locationName:"version" min:"1" type:"string" required:"true"`
@@ -5475,7 +5443,7 @@ type DeleteSlotTypeVersionInput struct {
 	Name *string `location:"uri" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The version of the slot type to delete. You cannot delete the $LATEST version
-	// of the slot type. To delete the $LATEST version, use the operation.
+	// of the slot type. To delete the $LATEST version, use the DeleteSlotType operation.
 	//
 	// Version is a required field
 	Version *string `location:"uri" locationName:"version" min:"1" type:"string" required:"true"`
@@ -5550,7 +5518,9 @@ type DeleteUtterancesInput struct {
 	BotName *string `location:"uri" locationName:"botName" min:"2" type:"string" required:"true"`
 
 	// The unique identifier for the user that made the utterances. This is the
-	// user ID that was sent in the or operation request that contained the utterance.
+	// user ID that was sent in the PostContent (http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html)
+	// or PostText (http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html)
+	// operation request that contained the utterance.
 	//
 	// UserId is a required field
 	UserId *string `location:"uri" locationName:"userId" min:"2" type:"string" required:"true"`
@@ -5669,20 +5639,19 @@ func (s *EnumerationValue) SetValue(v string) *EnumerationValue {
 	return s
 }
 
-// After an intent is fulfilled, you might prompt the user for additional activity.
-// For example, after the OrderPizza intent is fulfilled (the pizza order is
-// placed with a pizzeria), you might prompt the user to find out whether the
-// user wants to order drinks (another intent you defined in your bot).
+// A prompt for additional activity after an intent is fulfilled. For example,
+// after the OrderPizza intent is fulfilled, you might prompt the user to find
+// out whether the user wants to order drinks.
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/FollowUpPrompt
 type FollowUpPrompt struct {
 	_ struct{} `type:"structure"`
 
-	// Obtains information from the user.
+	// Prompts for information from the user.
 	//
 	// Prompt is a required field
 	Prompt *Prompt `locationName:"prompt" type:"structure" required:"true"`
 
-	// If the user answers "no" to the question defined in confirmationPrompt, Amazon
+	// If the user answers "no" to the question defined in the prompt field, Amazon
 	// Lex responds with this statement to acknowledge that the intent was canceled.
 	//
 	// RejectionStatement is a required field
@@ -6243,7 +6212,8 @@ type GetBotChannelAssociationsInput struct {
 
 	// Substring to match in channel association names. An association will be returned
 	// if any part of its name matches the substring. For example, "xyz" matches
-	// both "xyzabc" and "abcxyz."
+	// both "xyzabc" and "abcxyz." To return all bot channel associations, use a
+	// hyphen ("-") as the nameContains parameter.
 	NameContains *string `location:"querystring" locationName:"nameContains" min:"1" type:"string"`
 
 	// A pagination token for fetching the next page of associations. If the response
@@ -6419,7 +6389,7 @@ type GetBotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The message that Amazon Lex returns when the user elects to end the conversation
-	// without completing it. For more information, see .
+	// without completing it. For more information, see PutBot.
 	AbortStatement *Statement `locationName:"abortStatement" type:"structure"`
 
 	// Checksum of the bot used to identify a specific revision of the bot's $LATEST
@@ -6452,7 +6422,7 @@ type GetBotOutput struct {
 	ChildDirected *bool `locationName:"childDirected" type:"boolean"`
 
 	// The message Amazon Lex uses when it doesn't understand the user's request.
-	// For more information, see .
+	// For more information, see PutBot.
 	ClarificationPrompt *Prompt `locationName:"clarificationPrompt" type:"structure"`
 
 	// The date that the bot was created.
@@ -6465,10 +6435,10 @@ type GetBotOutput struct {
 	FailureReason *string `locationName:"failureReason" type:"string"`
 
 	// The maximum time in seconds that Amazon Lex retains the data gathered in
-	// a conversation. For more information, see .
+	// a conversation. For more information, see PutBot.
 	IdleSessionTTLInSeconds *int64 `locationName:"idleSessionTTLInSeconds" min:"60" type:"integer"`
 
-	// An array of intent objects. For more information, see .
+	// An array of intent objects. For more information, see PutBot.
 	Intents []*Intent `locationName:"intents" min:"1" type:"list"`
 
 	// The date that the bot was updated. When you create a resource, the creation
@@ -6490,8 +6460,8 @@ type GetBotOutput struct {
 	// The version of the bot. For a new bot, the version is always $LATEST.
 	Version *string `locationName:"version" min:"1" type:"string"`
 
-	// The Amazon Parrot voice ID that Amazon Lex uses for voice interaction with
-	// the user. For more information, see .
+	// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with
+	// the user. For more information, see PutBot.
 	VoiceId *string `locationName:"voiceId" type:"string"`
 }
 
@@ -7163,7 +7133,7 @@ type GetIntentOutput struct {
 	ConclusionStatement *Statement `locationName:"conclusionStatement" type:"structure"`
 
 	// If defined in the bot, Amazon Lex uses prompt to confirm the intent before
-	// fulfilling the user's request. For more information, see .
+	// fulfilling the user's request. For more information, see PutIntent.
 	ConfirmationPrompt *Prompt `locationName:"confirmationPrompt" type:"structure"`
 
 	// The date that the intent was created.
@@ -7173,14 +7143,14 @@ type GetIntentOutput struct {
 	Description *string `locationName:"description" type:"string"`
 
 	// If defined in the bot, Amazon Amazon Lex invokes this Lambda function for
-	// each user input. For more information, see .
+	// each user input. For more information, see PutIntent.
 	DialogCodeHook *CodeHook `locationName:"dialogCodeHook" type:"structure"`
 
 	// If defined in the bot, Amazon Lex uses this prompt to solicit additional
-	// user activity after the intent is fulfilled. For more information, see .
+	// user activity after the intent is fulfilled. For more information, see PutIntent.
 	FollowUpPrompt *FollowUpPrompt `locationName:"followUpPrompt" type:"structure"`
 
-	// Describes how the intent is fulfilled. For more information, see .
+	// Describes how the intent is fulfilled. For more information, see PutIntent.
 	FulfillmentActivity *FulfillmentActivity `locationName:"fulfillmentActivity" type:"structure"`
 
 	// The date that the intent was updated. When you create a resource, the creation
@@ -7478,7 +7448,7 @@ func (s *GetIntentsInput) SetNextToken(v string) *GetIntentsInput {
 type GetIntentsOutput struct {
 	_ struct{} `type:"structure"`
 
-	// An array of Intent objects. For more information, see .
+	// An array of Intent objects. For more information, see PutBot.
 	Intents []*IntentMetadata `locationName:"intents" type:"list"`
 
 	// If the response is truncated, the response includes a pagination token that
@@ -7932,9 +7902,9 @@ type GetUtterancesViewOutput struct {
 	// The name of the bot for which utterance information was returned.
 	BotName *string `locationName:"botName" min:"2" type:"string"`
 
-	// An array of objects, each containing a list of objects describing the utterances
-	// that were processed by your bot. The response contains a maximum of 100 UtteranceData
-	// objects for each version.
+	// An array of UtteranceList objects, each containing a list of UtteranceData
+	// objects describing the utterances that were processed by your bot. The response
+	// contains a maximum of 100 UtteranceData objects for each version.
 	Utterances []*UtteranceList `locationName:"utterances" type:"list"`
 }
 
@@ -8467,11 +8437,15 @@ type PutBotInput struct {
 	// ChildDirected is a required field
 	ChildDirected *bool `locationName:"childDirected" type:"boolean" required:"true"`
 
-	// When Amazon Lex doesn't understand the user's intent, it uses one of these
-	// messages to get clarification. For example, "Sorry, I didn't understand.
-	// Please repeat." Amazon Lex repeats the clarification prompt the number of
-	// times specified in maxAttempts. If Amazon Lex still can't understand, it
-	// sends the message specified in abortStatement.
+	// When Amazon Lex doesn't understand the user's intent, it uses this message
+	// to get clarification. To specify how many times Amazon Lex should repeate
+	// the clarification prompt, use the maxAttempts field. If Amazon Lex still
+	// doesn't understand, it sends the message in the abortStatement field.
+	//
+	// When you create a clarification prompt, make sure that it suggests the correct
+	// response from the user. for example, for a bot that orders pizza and drinks,
+	// you might create this clarification prompt: "What would you like to do? You
+	// can say 'Order a pizza' or 'Order a drink.'"
 	ClarificationPrompt *Prompt `locationName:"clarificationPrompt" type:"structure"`
 
 	// A description of the bot.
@@ -8521,9 +8495,9 @@ type PutBotInput struct {
 	// If you don't specify this value, the default value is Save.
 	ProcessBehavior *string `locationName:"processBehavior" type:"string" enum:"ProcessBehavior"`
 
-	// The Amazon Parrot voice ID that you want Amazon Lex to use for voice interactions
+	// The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions
 	// with the user. The locale configured for the voice must match the locale
-	// of the bot. For more information, see Voice (http://docs.aws.amazon.com/polly/latest/dg/API_Voice.html)
+	// of the bot. For more information, see Available Voices (http://docs.aws.amazon.com/polly/latest/dg/voicelist.html)
 	// in the Amazon Polly Developer Guide.
 	VoiceId *string `locationName:"voiceId" type:"string"`
 }
@@ -8657,7 +8631,7 @@ type PutBotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The message that Amazon Lex uses to abort a conversation. For more information,
-	// see .
+	// see PutBot.
 	AbortStatement *Statement `locationName:"abortStatement" type:"structure"`
 
 	// Checksum of the bot that you created.
@@ -8689,7 +8663,7 @@ type PutBotOutput struct {
 	ChildDirected *bool `locationName:"childDirected" type:"boolean"`
 
 	// The prompts that Amazon Lex uses when it doesn't understand the user's intent.
-	// For more information, see .
+	// For more information, see PutBot.
 	ClarificationPrompt *Prompt `locationName:"clarificationPrompt" type:"structure"`
 
 	// The date that the bot was created.
@@ -8703,10 +8677,10 @@ type PutBotOutput struct {
 	FailureReason *string `locationName:"failureReason" type:"string"`
 
 	// The maximum length of time that Amazon Lex retains the data gathered in a
-	// conversation. For more information, see .
+	// conversation. For more information, see PutBot.
 	IdleSessionTTLInSeconds *int64 `locationName:"idleSessionTTLInSeconds" min:"60" type:"integer"`
 
-	// An array of Intent objects. For more information, see .
+	// An array of Intent objects. For more information, see PutBot.
 	Intents []*Intent `locationName:"intents" min:"1" type:"list"`
 
 	// The date that the bot was updated. When you create a resource, the creation
@@ -8732,8 +8706,8 @@ type PutBotOutput struct {
 	// The version of the bot. For a new bot, the version is always $LATEST.
 	Version *string `locationName:"version" min:"1" type:"string"`
 
-	// The Amazon Parrot voice ID that Amazon Lex uses for voice interaction with
-	// the user. For more information, see .
+	// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with
+	// the user. For more information, see PutBot.
 	VoiceId *string `locationName:"voiceId" type:"string"`
 }
 
@@ -8889,19 +8863,26 @@ type PutIntentInput struct {
 	// might find John's phone number and set the corresponding session attribute.
 	DialogCodeHook *CodeHook `locationName:"dialogCodeHook" type:"structure"`
 
-	// A user prompt for additional activity after an intent is fulfilled. For example,
-	// after the OrderPizza intent is fulfilled (your Lambda function placed an
-	// order with a pizzeria), you might prompt the user to find if they want to
-	// order a drink (assuming that you have defined an OrderDrink intent in your
-	// bot).
+	// Amazon Lex uses this prompt to solicit additional activity after fulfilling
+	// an intent. For example, after the OrderPizza intent is fulfilled, you might
+	// prompt the user to order a drink.
 	//
-	// The followUpPrompt and conclusionStatement are mutually exclusive. You can
-	// specify only one. For example, your bot may not solicit both the following:
+	// The action that Amazon Lex takes depends on the user's response, as follows:
 	//
-	//  Follow up prompt - "$session.FirstName, your pizza order has been placed.
-	// Would you like to order a drink or a dessert?"
+	//    * If the user says "Yes" it responds with the clarification prompt that
+	//    is configured for the bot.
 	//
-	//  Conclusion statement - "$session.FirstName, your pizza order has been placed."
+	//    * if the user says "Yes" and continues with an utterance that triggers
+	//    an intent it starts a conversation for the intent.
+	//
+	//    * If the user says "No" it responds with the rejection statement configured
+	//    for the the follow-up prompt.
+	//
+	//    * If it doesn't recognize the utterance it repeats the follow-up prompt
+	//    again.
+	//
+	// The followUpPrompt field and the conclusionStatement field are mutually exclusive.
+	// You can specify only one.
 	FollowUpPrompt *FollowUpPrompt `locationName:"followUpPrompt" type:"structure"`
 
 	// Describes how the intent is fulfilled. For example, after a user provides
@@ -9681,9 +9662,10 @@ type Statement struct {
 	// Messages is a required field
 	Messages []*Message `locationName:"messages" min:"1" type:"list" required:"true"`
 
-	// At runtime, if the client is using the API, Amazon Lex includes the response
-	// card in the response. It substitutes all of the session attributes and slot
-	// values for placeholders in the response card.
+	// At runtime, if the client is using the PostText (http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html)
+	// API, Amazon Lex includes the response card in the response. It substitutes
+	// all of the session attributes and slot values for placeholders in the response
+	// card.
 	ResponseCard *string `locationName:"responseCard" min:"1" type:"string"`
 }
 
@@ -9809,8 +9791,8 @@ type UtteranceList struct {
 	// The version of the bot that processed the list.
 	BotVersion *string `locationName:"botVersion" min:"1" type:"string"`
 
-	// One or more objects that contain information about the utterances that have
-	// been made to a bot. The maximum number of object is 100.
+	// One or more UtteranceData objects that contain information about the utterances
+	// that have been made to a bot. The maximum number of object is 100.
 	Utterances []*UtteranceData `locationName:"utterances" type:"list"`
 }
 
