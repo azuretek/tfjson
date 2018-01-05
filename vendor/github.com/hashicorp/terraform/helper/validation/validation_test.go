@@ -111,6 +111,20 @@ func TestValidationStringInSlice(t *testing.T) {
 	})
 }
 
+func TestValidationRegexp(t *testing.T) {
+	runTestCases(t, []testCase{
+		{
+			val: ".*foo.*",
+			f:   ValidateRegexp,
+		},
+		{
+			val:         "foo(bar",
+			f:           ValidateRegexp,
+			expectedErr: regexp.MustCompile(regexp.QuoteMeta("error parsing regexp: missing closing ): `foo(bar`")),
+		},
+	})
+}
+
 func TestValidateJsonString(t *testing.T) {
 	type testCases struct {
 		Value    string
@@ -166,6 +180,57 @@ func TestValidateJsonString(t *testing.T) {
 	}
 }
 
+func TestValidateListUniqueStrings(t *testing.T) {
+	runTestCases(t, []testCase{
+		{
+			val: []interface{}{"foo", "bar"},
+			f:   ValidateListUniqueStrings,
+		},
+		{
+			val:         []interface{}{"foo", "bar", "foo"},
+			f:           ValidateListUniqueStrings,
+			expectedErr: regexp.MustCompile("duplicate entry - foo"),
+		},
+		{
+			val:         []interface{}{"foo", "bar", "foo", "baz", "bar"},
+			f:           ValidateListUniqueStrings,
+			expectedErr: regexp.MustCompile("duplicate entry - (?:foo|bar)"),
+		},
+	})
+}
+
+func TestValidationNoZeroValues(t *testing.T) {
+	runTestCases(t, []testCase{
+		{
+			val: "foo",
+			f:   NoZeroValues,
+		},
+		{
+			val: 1,
+			f:   NoZeroValues,
+		},
+		{
+			val: float64(1),
+			f:   NoZeroValues,
+		},
+		{
+			val:         "",
+			f:           NoZeroValues,
+			expectedErr: regexp.MustCompile("must not be empty"),
+		},
+		{
+			val:         0,
+			f:           NoZeroValues,
+			expectedErr: regexp.MustCompile("must not be zero"),
+		},
+		{
+			val:         float64(0),
+			f:           NoZeroValues,
+			expectedErr: regexp.MustCompile("must not be zero"),
+		},
+	})
+}
+
 func runTestCases(t *testing.T, cases []testCase) {
 	matchErr := func(errs []error, r *regexp.Regexp) bool {
 		// err must match one provided
@@ -183,6 +248,10 @@ func runTestCases(t *testing.T, cases []testCase) {
 
 		if len(errs) == 0 && tc.expectedErr == nil {
 			continue
+		}
+
+		if len(errs) != 0 && tc.expectedErr == nil {
+			t.Fatalf("expected test case %d to produce no errors, got %v", i, errs)
 		}
 
 		if !matchErr(errs, tc.expectedErr) {

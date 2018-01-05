@@ -170,7 +170,7 @@ func TestInit_get(t *testing.T) {
 
 	// Check output
 	output := ui.OutputWriter.String()
-	if !strings.Contains(output, "Get: file://") {
+	if !strings.Contains(output, "Getting source") {
 		t.Fatalf("doesn't look like get: %s", output)
 	}
 }
@@ -203,7 +203,7 @@ func TestInit_getUpgradeModules(t *testing.T) {
 
 	// Check output
 	output := ui.OutputWriter.String()
-	if !strings.Contains(output, "(update)") {
+	if !strings.Contains(output, "Updating source") {
 		t.Fatalf("doesn't look like get upgrade: %s", output)
 	}
 }
@@ -852,6 +852,27 @@ func TestInit_getProviderHaveLegacyVersion(t *testing.T) {
 
 	if !strings.Contains(ui.ErrorWriter.String(), "EXPECTED PROVIDER ERROR test") {
 		t.Fatalf("unexpected error output: %s", ui.ErrorWriter)
+	}
+}
+
+func TestInit_getProviderCheckRequiredVersion(t *testing.T) {
+	// Create a temporary working directory that is empty
+	td := tempDir(t)
+	copy.CopyDir(testFixturePath("init-check-required-version"), td)
+	defer os.RemoveAll(td)
+	defer testChdir(t, td)()
+
+	ui := new(cli.MockUi)
+	c := &InitCommand{
+		Meta: Meta{
+			testingOverrides: metaOverridesForProvider(testProvider()),
+			Ui:               ui,
+		},
+	}
+
+	args := []string{}
+	if code := c.Run(args); code != 1 {
+		t.Fatalf("bad: \n%s", ui.ErrorWriter.String())
 	}
 }
 
